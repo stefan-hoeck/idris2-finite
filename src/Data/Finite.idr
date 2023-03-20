@@ -11,6 +11,10 @@ interface Finite a where
   constructor MkFinite
   values : List a
 
+public export %inline
+valuesOf : (0 a : Type) -> Finite a => List a
+valuesOf _ = values
+
 public export
 Finite () where values = [()]
 
