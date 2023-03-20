@@ -1,0 +1,11 @@
+package finite
+
+authors    = "stefan-hoeck"
+brief      = "A derivable interface for types with a finite number of inhabitants"
+version    = 0.5.0
+sourcedir  = "src"
+depends    = base         >= 0.6.0
+           , elab-util
+
+modules = Data.Finite
+        , Derive.Finite
