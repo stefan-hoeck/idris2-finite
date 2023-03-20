@@ -8,6 +8,7 @@ import Data.Vect
 ||| finite number of inhabitants.
 public export
 interface Finite a where
+  constructor MkFinite
   values : List a
 
 public export
