@@ -6,6 +6,7 @@ import Data.Vect
 %default total
 %language ElabReflection
 
+||| Enum types are finite
 public export
 data Elem =
     H                                                                                  | He
@@ -24,6 +25,7 @@ data Elem =
 
 %runElab derive "Elem" [Show, Eq, Ord, Finite]
 
+||| The product of finite types is finite
 record Atom where
   constructor MkAtom
   elem : Elem
@@ -31,5 +33,13 @@ record Atom where
 
 %runElab derive "Atom" [Show, Eq, Finite]
 
+||| The sum of finite types is finite
+data Error : Type where
+  EmptyInput  : Error
+  Invalid     : Elem -> Error
+  OutOfBounds : Fin 12 -> Error
+
+%runElab derive "Error" [Show, Eq, Finite]
+
 main : IO ()
-main = putStrLn "All tests passed"
+main = putStrLn "All is well"
